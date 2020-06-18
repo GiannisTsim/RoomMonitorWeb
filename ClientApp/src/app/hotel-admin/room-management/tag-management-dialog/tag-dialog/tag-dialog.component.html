@@ -1,0 +1,42 @@
+<h2 mat-dialog-title *ngIf="data.hotelTag; else newHotelTag">
+  Edit {{ data.hotelTag.tag }}
+</h2>
+
+<ng-template #newHotelTag>
+  <h2 mat-dialog-title>Add new tag</h2>
+</ng-template>
+
+<form mat-dialog-content [formGroup]="hotelTagForm" (ngSubmit)="onSubmit()">
+  <mat-form-field color="accent">
+    <input
+      matInput
+      placeholder="Name"
+      formControlName="tag"
+      required
+      maxlength="100"
+    />
+  </mat-form-field>
+
+  <mat-form-field color="accent">
+    <textarea
+      matInput
+      placeholder="Description"
+      formControlName="description"
+      required
+      maxlength="256"
+    ></textarea>
+  </mat-form-field>
+</form>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button
+    mat-button
+    color="accent"
+    type="submit"
+    [disabled]="!hotelTagForm.valid"
+    (click)="onSubmit()"
+  >
+    Submit
+  </button>
+</div>

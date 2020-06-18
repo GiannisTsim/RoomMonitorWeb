@@ -1,0 +1,80 @@
+<!-- <div>{{ chartDatasets | json }}</div> -->
+
+<div id="component-wrapper">
+  <div id="chart-container" *ngIf="chartDatasets.length !== 0">
+    <h3>
+      {{ chartContainerTitle }}
+    </h3>
+    <div class="chart" *ngFor="let dataset of chartDatasets">
+      <ngx-charts-line-chart
+        [scheme]="colorScheme"
+        [legend]="legend"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxis]="xAxis"
+        [yAxis]="yAxis"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="dataset.application"
+        [timeline]="timeline"
+        [results]="dataset.data"
+        (select)="onSelect($event)"
+        (activate)="onActivate($event)"
+        (deactivate)="onDeactivate($event)"
+      >
+      </ngx-charts-line-chart>
+    </div>
+  </div>
+
+  <div id="chart-controller">
+    <h2>Query sensor data</h2>
+    <mat-form-field color="accent">
+      <mat-label>Area</mat-label>
+      <mat-select (selectionChange)="onRoomSelectionChange($event.value)">
+        <mat-option *ngFor="let room of rooms" [value]="room">
+          {{ room.roomType }} '{{ room.name }}'
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div *ngIf="selectedRoom && roomMonitorKeys.length === 0">
+      No data available
+    </div>
+
+    <button
+      *ngIf="selectedRoom && roomMonitorKeys.length !== 0"
+      mat-stroked-button
+      color="accent"
+      (click)="onGetRoomReadingsClick()"
+    >
+      Get area data
+    </button>
+
+    <mat-divider
+      *ngIf="selectedRoom && roomMonitorKeys.length !== 0"
+    ></mat-divider>
+
+    <mat-form-field
+      color="accent"
+      *ngIf="selectedRoom && roomMonitorKeys.length !== 0"
+    >
+      <mat-label>Monitor</mat-label>
+      <mat-select (selectionChange)="onMonitorSelectionChange($event.value)">
+        <mat-option
+          *ngFor="let monitorKey of roomMonitorKeys"
+          [value]="monitorKey"
+        >
+          {{ monitorKey.monitor }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button
+      *ngIf="selectedMonitorKey"
+      mat-flat-button
+      color="accent"
+      (click)="onGetMonitorReadingsClick()"
+    >
+      Get monitor data
+    </button>
+  </div>
+</div>

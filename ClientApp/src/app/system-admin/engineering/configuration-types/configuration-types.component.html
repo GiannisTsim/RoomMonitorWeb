@@ -1,0 +1,32 @@
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let type of configurationTypes">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ type.name }}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{ type.description }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div class="sensor-lists-container">
+      <mat-list dense>
+        <div mat-subheader>Measure sensors</div>
+        <mat-list-item *ngFor="let measure of type.measureApplications">
+          {{ measure }}
+        </mat-list-item>
+      </mat-list>
+      <mat-list dense>
+        <div mat-subheader>Switch sensors</div>
+        <mat-list-item *ngFor="let switch of type.switchApplications">
+          {{ switch }}
+        </mat-list-item>
+      </mat-list>
+    </div>
+
+    <mat-action-row>
+      <button mat-button color="accent">Edit</button>
+      <button mat-button color="warn">Delete</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>

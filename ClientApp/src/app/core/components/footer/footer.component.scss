@@ -1,0 +1,23 @@
+// Import theming functions
+@import "~@angular/material/theming";
+
+footer {
+  padding: 12px;
+  font-size: 12px;
+  margin-top: 40px;
+  color: white;
+  text-align: center;
+
+  // Get the default hue for a palette.
+  background-color: mat-color(mat-palette($mat-indigo));
+
+  //   // Get a specific hue for a palette.
+  //   // See https://material.io/archive/guidelines/style/color.html#color-color-palette for hues.
+  //   background-color: mat-color($accent, 300);
+
+  //   // Get a relative color for a hue ('lighter' or 'darker')
+  //   outline-color: mat-color($accent, lighter);
+
+  //   // Get a contrast color for a hue by adding `-contrast` to any other key.
+  //   border-color: mat-color($primary, "100-contrast");
+}

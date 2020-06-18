@@ -1,0 +1,18 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.mat-list-item button {
+  display: none;
+}
+
+.mat-list-item:hover button {
+  display: inline-block;
+}
+
+.add-item-button-container {
+  padding: 8px 16px;
+}
+.add-item-button-container button {
+  width: 100%;
+}

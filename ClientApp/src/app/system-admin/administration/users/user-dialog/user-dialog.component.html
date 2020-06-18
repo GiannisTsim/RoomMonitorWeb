@@ -1,0 +1,49 @@
+<h2 mat-dialog-title>Add new hotel user</h2>
+
+<form mat-dialog-content [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <mat-form-field color="accent" disabled>
+    <input
+      matInput
+      placeholder="User Email"
+      formControlName="email"
+      required
+      maxlength="100"
+      type="email"
+    />
+  </mat-form-field>
+
+  <mat-form-field color="accent">
+    <mat-label>Hotel</mat-label>
+    <mat-select [(value)]="selectedHotelKey" [disabled]="data?.hotelKey">
+      <mat-option *ngFor="let hotelKey of hotelKeys" [value]="hotelKey">
+        {{ hotelKey.hotelChain }}, {{ hotelKey.countryCode }},
+        {{ hotelKey.town }}, {{ hotelKey.suburb }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field color="accent">
+    <mat-label>User Role</mat-label>
+    <mat-select formControlName="role">
+      <mat-option [value]="UserRole.HOTEL_ADMIN">
+        {{ UserRole.HOTEL_ADMIN }}
+      </mat-option>
+      <mat-option [value]="UserRole.HOTEL_EMPLOYEE">
+        {{ UserRole.HOTEL_EMPLOYEE }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button
+    mat-button
+    color="accent"
+    type="submit"
+    [disabled]="!userForm.valid || !selectedHotelKey"
+    (click)="onSubmit()"
+  >
+    Submit
+  </button>
+</div>

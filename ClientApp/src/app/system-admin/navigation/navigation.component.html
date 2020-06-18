@@ -1,0 +1,53 @@
+<div>
+  <mat-nav-list dense disableRipple>
+    <h2 mat-subheader>
+      Administration
+    </h2>
+    <a
+      mat-list-item
+      routerLink="administration/hotels"
+      routerLinkActive="nav-list-item-active"
+    >
+      <mat-icon>apartment</mat-icon>
+      &nbsp;&nbsp;Hotels
+    </a>
+    <a
+      mat-list-item
+      routerLink="administration/users"
+      routerLinkActive="nav-list-item-active"
+    >
+      <mat-icon>people</mat-icon>
+      &nbsp;&nbsp;Users
+    </a>
+    <a
+      mat-list-item
+      routerLink="administration/devices"
+      routerLinkActive="nav-list-item-active"
+    >
+      <mat-icon>device_hub</mat-icon>
+      &nbsp;&nbsp;Devices
+    </a>
+
+    <mat-divider></mat-divider>
+
+    <h2 mat-subheader>
+      Engineering
+    </h2>
+    <a
+      mat-list-item
+      routerLink="engineering/configuration-types"
+      routerLinkActive="nav-list-item-active"
+    >
+      <mat-icon>tune</mat-icon>
+      &nbsp;&nbsp;Configuration Types
+    </a>
+    <a
+      mat-list-item
+      routerLink="engineering/sensors"
+      routerLinkActive="nav-list-item-active"
+    >
+      <mat-icon>spa</mat-icon>
+      &nbsp;&nbsp;Sensors
+    </a>
+  </mat-nav-list>
+</div>

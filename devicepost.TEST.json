@@ -1,0 +1,72 @@
+{
+  "MACAddress": "xx:xx:xx:xx:xx:xx",
+  "configurationType": "GH_POOL",
+  "logs": [
+    {
+      "logDtm": "YYYY-MM-DD hh:mm:ss[.nnn]",
+      "battteryLevel": 45,
+      "connFail": 5,
+      "postFail": 13,
+      "rssi": -63
+    },
+    {
+      "logDtm": "YYYY-MM-DD hh:mm:ss[.nnn]",
+      "battteryLevel": 30.5,
+      "connFail": 2,
+      "postFail": 18,
+      "rssi": -40
+    }
+  ],
+  "readings": [
+    {
+      "application": "Temperature",
+      "readingDtm": "YYYY-MM-DD hh:mm:ss[.nnn]",
+      "value": 25.4
+    },
+    {
+      "application": "Temperature",
+      "readingDtm": "YYYY-MM-DD hh:mm:ss[.nnn]",
+      "value": 26
+    },
+    {
+      "application": "Temperature",
+      "readingDtm": "YYYY-MM-DD hh:mm:ss[.nnn]",
+      "value": 28
+    },
+    {
+      "application": "Humidity",
+      "readingDtm": "YYYY-MM-DD hh:mm:ss[.nnn]",
+      "value": 14
+    },
+    {
+      "application": "Temperature",
+      "readingDtm": "YYYY-MM-DD hh:mm:ss[.nnn]",
+      "value": 17
+    },
+    {
+      "application": "Temperature",
+      "readingDtm": "YYYY-MM-DD hh:mm:ss[.nnn]",
+      "value": 17.5
+    },
+    {
+      "application": "Door",
+      "readingDtm": "YYYY-MM-DD hh:mm:ss[.nnn]",
+      "value": 1
+    },
+    {
+      "application": "Door",
+      "readingDtm": "YYYY-MM-DD hh:mm:ss[.nnn]",
+      "value": 0
+    },
+    {
+      "application": "Door",
+      "readingDtm": "YYYY-MM-DD hh:mm:ss[.nnn]",
+      "value": 1
+    },
+    {
+      "application": "Door",
+      "readingDtm": "YYYY-MM-DD hh:mm:ss[.nnn]",
+      "value": 0
+    }
+  ]
+}

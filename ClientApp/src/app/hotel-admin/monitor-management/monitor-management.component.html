@@ -1,0 +1,134 @@
+<div *ngIf="monitorUnassignedSource.data.length !== 0" class="mat-elevation-z8">
+  <table id="unassigned-table" mat-table [dataSource]="monitorUnassignedSource">
+    <!-- Index Column -->
+    <ng-container matColumnDef="index">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let i = index">{{ i + 1 }}</td>
+    </ng-container>
+
+    <!-- MACAddress Column -->
+    <ng-container matColumnDef="MACAddress">
+      <th mat-header-cell *matHeaderCellDef>MAC Address</th>
+      <td mat-cell *matCellDef="let monitor">{{ monitor.MACAddress }}</td>
+    </ng-container>
+
+    <!-- configurationType Column -->
+    <ng-container matColumnDef="configurationType">
+      <th mat-header-cell *matHeaderCellDef>Configuration Type</th>
+      <td mat-cell *matCellDef="let monitor">
+        {{ monitor.configurationType }}
+      </td>
+    </ng-container>
+
+    <!-- registrationDtm Column -->
+    <ng-container matColumnDef="registrationDtm">
+      <th mat-header-cell *matHeaderCellDef>Registered At</th>
+      <td mat-cell *matCellDef="let monitor">
+        {{ monitor.registrationDtm | date }}
+      </td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions" stickyEnd>
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let monitor">
+        <button
+          mat-icon-button
+          color="accent"
+          (click)="openAssignMonitorDialog(monitor)"
+        >
+          <mat-icon matTooltip="Assign Monitor">get_app</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="unassignedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: unassignedColumns; let i = index"
+    ></tr>
+  </table>
+</div>
+
+<mat-divider></mat-divider>
+
+<div *ngIf="monitorAssignedSource.data.length !== 0" class="mat-elevation-z8">
+  <table id="assigned-table" mat-table [dataSource]="monitorAssignedSource">
+    <!-- Index Column -->
+    <ng-container matColumnDef="index">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let i = index">{{ i + 1 }}</td>
+    </ng-container>
+
+    <!-- MACAddress Column -->
+    <ng-container matColumnDef="MACAddress">
+      <th mat-header-cell *matHeaderCellDef>MAC Address</th>
+      <td mat-cell *matCellDef="let monitor">{{ monitor.MACAddress }}</td>
+    </ng-container>
+
+    <!-- configurationType Column -->
+    <ng-container matColumnDef="configurationType">
+      <th mat-header-cell *matHeaderCellDef>Configuration Type</th>
+      <td mat-cell *matCellDef="let monitor">
+        {{ monitor.configurationType }}
+      </td>
+    </ng-container>
+
+    <!-- registrationDtm Column -->
+    <ng-container matColumnDef="registrationDtm">
+      <th mat-header-cell *matHeaderCellDef>Registered At</th>
+      <td mat-cell *matCellDef="let monitor">
+        {{ monitor.registrationDtm | date }}
+      </td>
+    </ng-container>
+
+    <!-- room Column -->
+    <ng-container matColumnDef="room">
+      <th mat-header-cell *matHeaderCellDef>Location</th>
+      <td mat-cell *matCellDef="let monitor">
+        {{ monitor.roomType }} '{{ monitor.room }}'
+      </td>
+    </ng-container>
+
+    <!-- monitor Column -->
+    <ng-container matColumnDef="monitor">
+      <th mat-header-cell *matHeaderCellDef>Monitor Name</th>
+      <td mat-cell *matCellDef="let monitor">
+        {{ monitor.monitor }}
+      </td>
+    </ng-container>
+
+    <!-- placementDtm Column -->
+    <ng-container matColumnDef="placementDtm">
+      <th mat-header-cell *matHeaderCellDef>Placed At</th>
+      <td mat-cell *matCellDef="let monitor">
+        {{ monitor.placementDtm | date }}
+      </td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions" stickyEnd>
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let monitor">
+        <div class="action-button-container">
+          <button mat-icon-button color="accent">
+            <mat-icon matTooltip="Edit Monitor">edit</mat-icon>
+          </button>
+          <button
+            mat-icon-button
+            color="warn"
+            (click)="deassignMonitorAfterConfirm(monitor)"
+          >
+            <mat-icon matTooltip="Deassign Monitor">eject</mat-icon>
+          </button>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="assignedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: assignedColumns; let i = index"
+    ></tr>
+  </table>
+</div>

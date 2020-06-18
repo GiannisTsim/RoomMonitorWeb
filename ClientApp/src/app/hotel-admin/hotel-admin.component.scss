@@ -1,0 +1,16 @@
+#wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+#navigation-list-container {
+  min-width: 20%;
+  width: auto;
+  max-width: 25%;
+  margin-right: 16px;
+}
+
+#main-container {
+  flex: 1;
+}

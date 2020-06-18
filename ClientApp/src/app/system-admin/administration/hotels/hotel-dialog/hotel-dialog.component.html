@@ -1,0 +1,77 @@
+<h2 mat-dialog-title *ngIf="hotel; else newHotel">
+  Edit {{ hotel.hotelChain }}
+</h2>
+
+<ng-template #newHotel>
+  <h2 mat-dialog-title>Add new hotel</h2>
+</ng-template>
+
+<form mat-dialog-content [formGroup]="hotelForm" (ngSubmit)="onSubmit()">
+  <mat-form-field color="accent">
+    <input
+      matInput
+      placeholder="Hotel Name"
+      formControlName="hotelChain"
+      required
+      maxlength="100"
+    />
+  </mat-form-field>
+
+  <mat-form-field color="accent">
+    <mat-select placeholder="Country" formControlName="countryCode">
+      <mat-option
+        *ngFor="let country of availableCountries"
+        [value]="country.countryCode"
+      >
+        {{ country.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field color="accent">
+    <input
+      matInput
+      placeholder="Town"
+      formControlName="town"
+      required
+      maxlength="100"
+    />
+  </mat-form-field>
+
+  <mat-form-field color="accent">
+    <input
+      matInput
+      placeholder="Suburb"
+      formControlName="suburb"
+      required
+      maxlength="100"
+    />
+  </mat-form-field>
+
+  <div>
+    <button
+      mat-icon-button
+      color="accent"
+      type="button"
+      *ngFor="let numStar of [1, 2, 3, 4, 5]"
+      (click)="handleNumStarChange(numStar)"
+    >
+      <mat-icon>
+        {{ hotelForm.get("numStar").value < numStar ? "star_outline" : "star" }}
+      </mat-icon>
+    </button>
+  </div>
+</form>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button
+    mat-button
+    color="accent"
+    type="submit"
+    [disabled]="!hotelForm.valid"
+    (click)="onSubmit()"
+  >
+    Submit
+  </button>
+</div>

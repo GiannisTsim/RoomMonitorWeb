@@ -1,0 +1,31 @@
+table {
+  width: 100%;
+}
+
+.action-button-container {
+  display: flex;
+  width: 80px;
+}
+
+th.mat-column-actions,
+td.mat-column-actions {
+  width: 80px; /* equal to button width */
+}
+
+.mat-row:hover {
+  background: whitesmoke;
+}
+
+td.mat-column-actions button {
+  display: none;
+}
+
+.mat-row:hover td.mat-column-actions button {
+  display: inline-block;
+}
+
+#table-toolbar {
+  height: 56px; /* same as header row */
+  background-color: white;
+  justify-content: flex-end;
+}

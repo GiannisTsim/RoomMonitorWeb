@@ -1,0 +1,59 @@
+<h2 mat-dialog-title *ngIf="data.room; else newRoom">
+  Edit {{ data.room.roomType }} "{{ data.room.name }}"
+</h2>
+
+<ng-template #newRoom>
+  <h2 mat-dialog-title>Add new area</h2>
+</ng-template>
+
+<form mat-dialog-content [formGroup]="roomForm" (ngSubmit)="onSubmit()">
+  <mat-form-field color="accent">
+    <input
+      matInput
+      placeholder="Name"
+      formControlName="name"
+      required
+      maxlength="100"
+    />
+  </mat-form-field>
+
+  <mat-form-field color="accent">
+    <mat-label>Type</mat-label>
+    <mat-select formControlName="roomType">
+      <mat-option
+        *ngFor="let type of data.roomTypes"
+        [value]="type.name"
+        [matTooltip]="type.description || 'No description available'"
+        matTooltipPosition="after"
+      >
+        {{ type.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field color="accent">
+    <mat-label>Tags</mat-label>
+    <mat-select formControlName="tags" multiple disableRipple>
+      <mat-option
+        *ngFor="let hotelTag of hotelTags"
+        [value]="hotelTag.tag"
+        [matTooltip]="hotelTag.description || 'No description available'"
+        matTooltipPosition="after"
+        >{{ hotelTag.tag }}</mat-option
+      >
+    </mat-select>
+  </mat-form-field>
+</form>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button
+    mat-button
+    color="accent"
+    type="submit"
+    [disabled]="!roomForm.valid"
+    (click)="onSubmit()"
+  >
+    Submit
+  </button>
+</div>

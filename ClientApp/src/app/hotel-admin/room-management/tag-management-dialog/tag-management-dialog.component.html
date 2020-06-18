@@ -1,0 +1,24 @@
+<h2 mat-dialog-title>
+  Manage tags
+</h2>
+
+<mat-list dense *ngIf="hotelTags?.length !== 0">
+  <mat-list-item
+    *ngFor="let hotelTag of hotelTags"
+    style="display: inline-block; width: 50%; text-align: left;"
+  >
+    <h3 matLine>{{ hotelTag.tag }}</h3>
+    <p matLine>{{ hotelTag.description || "No description available" }}</p>
+  </mat-list-item>
+</mat-list>
+
+<div *ngIf="hotelTags?.length === 0">
+  You have not created any tags yet
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onClose()">Close</button>
+  <button mat-button color="accent" (click)="openTagDialog()">
+    Add new tag
+  </button>
+</div>

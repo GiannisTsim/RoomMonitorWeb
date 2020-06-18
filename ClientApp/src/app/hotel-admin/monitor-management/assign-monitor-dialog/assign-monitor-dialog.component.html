@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>Assign Monitor {{ data.monitorKey.MACAddress }}</h2>
+
+<form mat-dialog-content [formGroup]="monitorForm" (ngSubmit)="onSubmit()">
+  <mat-form-field color="accent">
+    <mat-label>Room</mat-label>
+    <mat-select (selectionChange)="onRoomSelectionChange($event.value)">
+      <mat-option *ngFor="let room of rooms" [value]="room">
+        {{ room.roomType }} '{{ room.name }}'
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field color="accent">
+    <input
+      matInput
+      placeholder="Monitor Name"
+      formControlName="monitor"
+      required
+      maxlength="100"
+    />
+  </mat-form-field>
+</form>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button
+    mat-button
+    color="accent"
+    type="submit"
+    [disabled]="!monitorForm.valid"
+    (click)="onSubmit()"
+  >
+    Assign
+  </button>
+</div>

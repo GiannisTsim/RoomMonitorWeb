@@ -1,0 +1,35 @@
+table {
+  width: 100%;
+}
+
+#unassigned-table th.mat-column-actions,
+#unassigned-table td.mat-column-actions {
+  width: 40px; /* equal to button width */
+}
+
+#assigned-table .action-button-container {
+  display: flex;
+  width: 80px;
+}
+
+#assigned-table th.mat-column-actions,
+#assigned-table td.mat-column-actions {
+  width: 80px; /* equal to button width */
+}
+
+.mat-row:hover {
+  background: whitesmoke;
+}
+
+td.mat-column-actions button {
+  display: none;
+}
+
+.mat-row:hover td.mat-column-actions button {
+  display: inline-block;
+}
+
+mat-divider {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}

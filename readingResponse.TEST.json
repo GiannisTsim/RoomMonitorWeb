@@ -1,0 +1,53 @@
+{
+  "hotelData": [
+    {
+      "hotelChain": "TestHotel1",
+      "countryCode": "GR",
+      "town": "Athens",
+      "suburb": "Aigaleo",
+      "roomData": [
+        {
+          "roomType": "Guest Room",
+          "room": "101",
+          "monitorData": [
+            {
+              "monitor": "East Wall",
+              "applicationMeasureData": [
+                {
+                  "application": "Temperature",
+                  "sensorType": "Measure",
+                  "sensorData": [
+                    {
+                      "readingDtm": "YYYY-MM-DD hh:mm:ss[.nnn]",
+                      "value": 28
+                    },
+                    {
+                      "readingDtm": "YYYY-MM-DD hh:mm:ss[.nnn]",
+                      "value": 34
+                    }
+                  ]
+                }
+              ],
+              "applicationSwitchData": [
+                {
+                  "application": "Door",
+                  "sensorType": "Switch",
+                  "sensorData": [
+                    {
+                      "readingDtm": "YYYY-MM-DD hh:mm:ss[.nnn]",
+                      "value": false
+                    },
+                    {
+                      "readingDtm": "YYYY-MM-DD hh:mm:ss[.nnn]",
+                      "value": true
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

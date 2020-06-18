@@ -1,0 +1,61 @@
+<header>
+  <mat-toolbar color="accent">
+    <span>RoomMonitor Logo</span>
+    <button mat-button routerLink="/" routerLinkActive="active">Home</button>
+    <button mat-button routerLink="/about" routerLinkActive="active">
+      About
+    </button>
+
+    <button
+      *ngIf="userInfo?.role === UserRole.SYSTEM_ADMIN"
+      mat-button
+      routerLink="/system-admin"
+      routerLinkActive="active"
+    >
+      System Administration
+    </button>
+
+    <button
+      *ngIf="userInfo?.role === UserRole.HOTEL_ADMIN"
+      mat-button
+      routerLink="/hotel-admin"
+      routerLinkActive="active"
+    >
+      Hotel Administration
+    </button>
+
+    <!-- <button mat-button *ngIf="userInfo" (click)="dashboardClicked.emit()">
+      {{ userInfo.role }} Dashboard
+    </button> -->
+
+    <span id="spacer"></span>
+
+    <!-- If user not logged in, show login button -->
+    <button
+      mat-button
+      *ngIf="!userInfo; else userAuthenticated"
+      (click)="login()"
+    >
+      Login &nbsp;
+      <mat-icon>power_settings_new</mat-icon>
+    </button>
+
+    <!-- Else show user menu -->
+    <ng-template #userAuthenticated>
+      <button mat-button [matMenuTriggerFor]="userMenu">
+        {{ userInfo.email }} &nbsp;
+        <mat-icon>person</mat-icon>
+      </button>
+      <mat-menu #userMenu="matMenu" xPosition="before">
+        <button mat-menu-item>
+          ...
+        </button>
+        <button mat-menu-item (click)="logout()">
+          Logout &nbsp;
+          <mat-icon>power_settings_new</mat-icon>
+        </button>
+      </mat-menu>
+    </ng-template>
+  </mat-toolbar>
+  <!-- <mat-progress-bar mode="indeterminate"></mat-progress-bar> -->
+</header>

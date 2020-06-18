@@ -1,0 +1,42 @@
+﻿@model ActivateViewModel
+
+    <div class="login-page">
+        <div class="page-header">
+            <h1>Activate Account</h1>
+        </div>
+
+        <partial name="_ValidationSummary" />
+
+        <div class="row">
+                <div class="col-sm-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Activate your account by setting a password</h3>
+                        </div>
+                        <div class="panel-body">
+
+                            <form asp-route="Activate">
+                                <input type="hidden" asp-for="UserId" />
+                                <input type="hidden" asp-for="Code" />
+
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label asp-for="Password"></label>
+                                        <input type="password" class="form-control" placeholder="Password" asp-for="Password" autocomplete="off">
+                                    </div>
+                                    <div class="form-group">
+                                        <label asp-for="ConfirmPassword"></label>
+                                        <input type="password" class="form-control" placeholder="Confirm Password" asp-for="ConfirmPassword" autocomplete="off">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <button class="btn btn-primary" name="button" value="activate">Activate</button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+

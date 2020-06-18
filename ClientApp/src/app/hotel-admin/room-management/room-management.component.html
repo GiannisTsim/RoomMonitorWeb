@@ -1,0 +1,68 @@
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="roomSource">
+    <!-- Index Column -->
+    <ng-container matColumnDef="index">
+      <th mat-header-cell *matHeaderCellDef>No.</th>
+      <td mat-cell *matCellDef="let i = index">{{ i + 1 }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let room">{{ room.name }}</td>
+    </ng-container>
+
+    <!-- Type Column -->
+    <ng-container matColumnDef="roomType">
+      <th mat-header-cell *matHeaderCellDef>Type</th>
+      <td mat-cell *matCellDef="let room">{{ room.roomType }}</td>
+    </ng-container>
+
+    <!-- Tags Column -->
+    <ng-container matColumnDef="tags">
+      <th mat-header-cell *matHeaderCellDef>Tags</th>
+      <td mat-cell *matCellDef="let room">
+        {{ room.tags ? room.tags.join() : "-" }}
+      </td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions" stickyEnd>
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let room">
+        <div class="action-button-container">
+          <button mat-icon-button color="accent" (click)="openRoomDialog(room)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button
+            mat-icon-button
+            color="warn"
+            (click)="deleteRoomAfterConfirm(room)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns; let i = index"
+    ></tr>
+  </table>
+
+  <mat-toolbar id="table-toolbar">
+    <button mat-raised-button color="accent" (click)="openRoomDialog()">
+      Add new area
+    </button>
+    <button
+      id="tag-dialog-button"
+      mat-stroked-button
+      color="accent"
+      (click)="openTagManagementDialog()"
+    >
+      Manage tags
+    </button>
+  </mat-toolbar>
+</div>

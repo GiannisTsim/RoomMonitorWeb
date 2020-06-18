@@ -1,0 +1,35 @@
+<div>
+  <mat-nav-list dense disableRipple>
+    <h2 mat-subheader>Hotel Administration</h2>
+
+    <a mat-list-item routerLink="users" routerLinkActive="nav-list-item-active">
+      <mat-icon>supervisor_account</mat-icon>
+      &nbsp;&nbsp;Users
+    </a>
+
+    <a mat-list-item routerLink="rooms" routerLinkActive="nav-list-item-active">
+      <mat-icon>layers </mat-icon>
+      &nbsp;&nbsp;Areas
+    </a>
+
+    <a
+      mat-list-item
+      routerLink="monitors"
+      routerLinkActive="nav-list-item-active"
+    >
+      <mat-icon>device_hub </mat-icon>
+      &nbsp;&nbsp;Monitors
+    </a>
+
+    <mat-divider></mat-divider>
+
+    <a
+      mat-list-item
+      routerLink="sensor-data"
+      routerLinkActive="nav-list-item-active"
+    >
+      <mat-icon>show_chart </mat-icon>
+      &nbsp;&nbsp;Sensor data
+    </a>
+  </mat-nav-list>
+</div>
